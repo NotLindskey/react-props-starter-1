@@ -12,12 +12,17 @@ const count = (state = 0, action) => {
 };
 
 // another reducer
-const elementList = (state = [], action) => {
+const elementList = (state = ["<p>oxygen</p>", "carbon", "bronze"], action) => {
 	return state;
 };
 
 // store
-const storeInstance = createStore(count);
+const storeInstance = createStore(
+	combineReducers({
+		count,
+		elementList,
+	})
+);
 
 ReactDOM.render(
 	<React.StrictMode>
